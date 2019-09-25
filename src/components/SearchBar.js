@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class SearchBar extends React.Component {
     state = { term: 'cars'};
@@ -10,6 +9,7 @@ class SearchBar extends React.Component {
 
     onFormSubmit = event => {
         event.preventDefault();
+        this.props.onFormSubmit(this.state.term);
         //@TODO make sure we call back from parent
     };
 
