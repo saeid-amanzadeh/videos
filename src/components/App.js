@@ -10,6 +10,10 @@ class App extends React.Component{
         selectedVideo: null
     };
 
+    componentDidMount() {
+        this.onTermSubmit("reactJs");
+    };
+
     onVideoSelect = (video) => {
         this.setState({ selectedVideo: video} );
         console.log("From the App", video);
@@ -22,7 +26,11 @@ class App extends React.Component{
            }
        });
 
-       this.setState({videos: response.data.items});
+       this.setState({
+           videos: response.data.items,
+           selectedVideo : response.data.items[0]
+           }
+       );
     };
 
     render() {
